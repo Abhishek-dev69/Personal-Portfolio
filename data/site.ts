@@ -233,6 +233,8 @@ export const projects: Project[] = [
       "A browser-based workflow builder for HR operations with a drag-and-drop canvas, typed node configuration, validation, simulation, autosave, and JSON import/export.",
     category: "Frontend Tooling",
     stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "Zustand", "React Flow"],
+    liveUrl: "https://tredence-omega.vercel.app/",
+    liveLabel: "Live demo",
     githubUrl: "https://github.com/Abhishek-dev69/Tredence",
     imageLabel: "Visual workflow editor with simulation sandbox",
   },
