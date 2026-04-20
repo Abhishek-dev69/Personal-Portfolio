@@ -21,8 +21,9 @@ export const navigation = [
 ];
 
 export const stats = [
-  { label: "Apps published", value: "3+" },
+  { label: "Apps on App Store + Play Store", value: "3+" },
   { label: "Core mobile stack", value: "Swift + React Native" },
+  { label: "Live web projects", value: "Multiple" },
   { label: "Training program", value: "Apple x Infosys" },
 ];
 
