@@ -4,7 +4,8 @@ export const siteConfig = {
   tagline: "I build fast, modern, user-friendly web experiences.",
   about:
     "Passionate developer focused on building clean, scalable, and impactful products.",
-  email: "your@email.com",
+  email: "abhishek12439525@gmail.com",
+  phone: "+91 7046833865",
   github: "https://github.com/Abhishek-dev69",
   linkedin: "https://www.linkedin.com/in/abhishek-singh-3014-/",
   location: "Available worldwide",
@@ -267,6 +268,7 @@ export const projects: Project[] = [
 
 export const contactLinks = [
   { label: "Email", href: `mailto:${siteConfig.email}` },
+  { label: "Phone", href: "tel:+917046833865" },
   { label: "GitHub", href: siteConfig.github },
   { label: "LinkedIn", href: siteConfig.linkedin },
   { label: "Resume", href: siteConfig.resumeHref },
