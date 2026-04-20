@@ -48,11 +48,11 @@ export default function HomePage() {
                 </ButtonLink>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
                 {stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5"
+                    className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 xl:min-h-[184px]"
                   >
                     <p className="font-display text-[1.75rem] font-semibold leading-tight tracking-tight text-white sm:text-2xl">
                       {stat.value}
