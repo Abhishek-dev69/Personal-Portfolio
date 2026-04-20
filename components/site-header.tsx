@@ -29,8 +29,20 @@ export function SiteHeader() {
             className="group inline-flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
             aria-label={`${siteConfig.name} home`}
           >
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/6 text-sm font-semibold text-white transition group-hover:border-accent/40 group-hover:bg-white/10">
-              YN
+            <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/6 text-white transition group-hover:border-accent/40 group-hover:bg-white/10">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 19 12 5l7 14" />
+                <path d="M8.8 13h6.4" />
+              </svg>
             </span>
             <span className="hidden flex-col sm:flex">
               <span className="font-display text-sm font-semibold tracking-wide text-white">
