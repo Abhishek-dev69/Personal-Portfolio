@@ -31,6 +31,21 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.projects-marquee-track {
+  --marquee-gap: 1.5rem;
+  animation: projects-marquee 90s linear infinite;
+}
+
+@keyframes projects-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - (var(--marquee-gap) / 2)));
+  }
+}
+
 ::selection {
   background: rgba(66, 219, 191, 0.28);
   color: white;
@@ -73,6 +88,13 @@ svg {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .projects-marquee-track {
+    width: 100%;
+    animation: none;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
   }
 
   *,
