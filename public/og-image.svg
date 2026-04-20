@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050816" />
+      <stop offset="100%" stop-color="#0b1222" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0.2" cy="0.1" r="0.8">
+      <stop offset="0%" stop-color="#42DBBF" stop-opacity="0.42" />
+      <stop offset="100%" stop-color="#42DBBF" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+  <rect x="84" y="84" width="1032" height="462" rx="34" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)" />
+  <text x="120" y="250" fill="#E5EDF7" font-family="Avenir Next, Segoe UI, sans-serif" font-size="76" font-weight="700">
+    Your Name
+  </text>
+  <text x="120" y="320" fill="#42DBBF" font-family="Avenir Next, Segoe UI, sans-serif" font-size="30" letter-spacing="6">
+    FULL STACK DEVELOPER
+  </text>
+  <text x="120" y="388" fill="#94A3B8" font-family="Avenir Next, Segoe UI, sans-serif" font-size="32">
+    I build fast, modern, user-friendly web experiences.
+  </text>
+</svg>

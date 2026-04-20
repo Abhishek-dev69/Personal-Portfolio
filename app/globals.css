@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #050816;
+  --foreground: #e5edf7;
+  --muted: #8ba0bd;
+  --border: rgba(148, 163, 184, 0.16);
+  --accent: #42dbbf;
+  --accent-soft: rgba(66, 219, 191, 0.14);
+  --card: rgba(10, 15, 28, 0.72);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top, rgba(66, 219, 191, 0.08), transparent 28%),
+    linear-gradient(180deg, #050816 0%, #040713 45%, #07101c 100%);
+  color: var(--foreground);
+  font-family: "Satoshi", "Avenir Next", "Segoe UI", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(66, 219, 191, 0.28);
+  color: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .surface {
+    @apply rounded-[1.75rem] border border-white/10 bg-card shadow-soft;
+  }
+
+  .section-space {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
