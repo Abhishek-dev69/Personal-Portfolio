@@ -9,7 +9,7 @@ export const siteConfig = {
   linkedin: "https://www.linkedin.com/in/abhishek-singh-3014-/",
   location: "Available worldwide",
   resumeHref: "/resume.pdf",
-  domain: "https://example-portfolio.com",
+  domain: "https://personal-portfolio-px7hurph2-abhishek-singhs-projects-0879fed9.vercel.app",
 };
 
 export const navigation = [
