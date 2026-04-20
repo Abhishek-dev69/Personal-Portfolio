@@ -18,8 +18,8 @@ export default function HomePage() {
               </div>
 
               <div className="space-y-6">
-                <p className="text-sm uppercase tracking-[0.28em] text-slate-400">
-                  {siteConfig.title}
+                <p className="text-[11px] uppercase tracking-[0.18em] text-slate-400 sm:text-sm sm:tracking-[0.24em] lg:whitespace-nowrap">
+                  {siteConfig.heroLabel ?? siteConfig.title}
                 </p>
                 <div className="space-y-4">
                   <h1 className="font-display text-5xl font-semibold tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
