@@ -1,7 +1,7 @@
 import { ButtonLink } from "@/components/button-link";
 import { Container } from "@/components/container";
 import { ExperienceList } from "@/components/experience-list";
-import { ProjectCard } from "@/components/project-card";
+import { FeaturedProjectsMarquee } from "@/components/featured-projects-marquee";
 import { SectionHeading } from "@/components/section-heading";
 import { experience, highlights, projects, siteConfig, skills, stats } from "@/data/site";
 
@@ -135,11 +135,7 @@ export default function HomePage() {
             </ButtonLink>
           </div>
 
-          <div className="grid gap-6 xl:grid-cols-3">
-            {projects.slice(0, 3).map((project) => (
-              <ProjectCard key={project.title} project={project} />
-            ))}
-          </div>
+          <FeaturedProjectsMarquee projects={projects} />
         </Container>
       </section>
 
