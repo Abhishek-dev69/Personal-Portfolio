@@ -34,6 +34,15 @@ export default function ContactPage() {
                   </a>
                 </div>
                 <div>
+                  <p className="text-sm text-slate-400">Phone</p>
+                  <a
+                    href="tel:+917046833865"
+                    className="mt-1 inline-block text-base text-white transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                  >
+                    {siteConfig.phone}
+                  </a>
+                </div>
+                <div>
                   <p className="text-sm text-slate-400">Location</p>
                   <p className="mt-1 text-base text-white">{siteConfig.location}</p>
                 </div>
