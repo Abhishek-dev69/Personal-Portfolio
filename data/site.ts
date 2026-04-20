@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "Abhishek Singh",
   title: "Full Stack Developer",
+  heroLabel: "Mobile Application Developer • Full Stack Web Developer",
   tagline: "I build fast, modern, user-friendly web experiences.",
   about:
     "Passionate developer focused on building clean, scalable, and impactful products.",
