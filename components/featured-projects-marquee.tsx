@@ -9,12 +9,9 @@ export function FeaturedProjectsMarquee({ projects }: FeaturedProjectsMarqueePro
   const marqueeProjects = [...projects, ...projects];
 
   return (
-    <div className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#050816] to-transparent sm:w-24" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#050816] to-transparent sm:w-24" />
-
+    <div className="projects-marquee-mask relative overflow-hidden py-2">
       <div
-        className="projects-marquee-track flex w-max gap-6 py-2 hover:[animation-play-state:paused] focus-within:[animation-play-state:paused]"
+        className="projects-marquee-track flex w-max gap-6 hover:[animation-play-state:paused] focus-within:[animation-play-state:paused]"
         aria-label="Featured projects marquee"
       >
         {marqueeProjects.map((project, index) => (
