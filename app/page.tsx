@@ -2,6 +2,7 @@ import { ButtonLink } from "@/components/button-link";
 import { Container } from "@/components/container";
 import { ExperienceList } from "@/components/experience-list";
 import { FeaturedProjectsMarquee } from "@/components/featured-projects-marquee";
+import { RecruiterSignalPanel } from "@/components/recruiter-signal-panel";
 import { SectionHeading } from "@/components/section-heading";
 import {
   experience,
@@ -64,7 +65,7 @@ export default function HomePage() {
                 {stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-accent/30 hover:bg-white/[0.06] xl:min-h-[168px]"
+                    className="hero-stat-card rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-accent/30 hover:bg-white/[0.06] xl:min-h-[168px]"
                   >
                     <p className="font-display text-[1.75rem] font-semibold leading-tight tracking-tight text-white sm:text-2xl">
                       {stat.value}
@@ -75,43 +76,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="reveal-up surface relative overflow-hidden p-5 sm:p-7 lg:p-8">
-              <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-accent/15 blur-3xl" />
-              <div className="absolute -bottom-20 left-10 h-48 w-48 rounded-full bg-amber-400/10 blur-3xl" />
-              <div className="relative space-y-5">
-                <div className="rounded-[1.5rem] border border-white/10 bg-slate-950/60 p-5 sm:p-6">
-                  <div className="flex items-center justify-between gap-4">
-                    <p className="text-sm uppercase tracking-[0.24em] text-slate-400">
-                      Product snapshot
-                    </p>
-                    <span className="rounded-full bg-accent/15 px-3 py-1 text-xs font-medium text-accent">
-                      Live work
-                    </span>
-                  </div>
-                  <div className="mt-6 grid gap-3">
-                    {proofPoints.map((item) => (
-                      <div
-                        key={item}
-                        className="flex gap-3 rounded-2xl border border-white/8 bg-white/[0.035] p-3"
-                      >
-                        <span className="mt-2 h-2 w-2 flex-none rounded-full bg-accent" />
-                        <p className="text-sm leading-6 text-slate-300">{item}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {["iOS", "Android", "Web", "Realtime"].map((skill) => (
-                    <div
-                      key={skill}
-                      className="rounded-[1.25rem] border border-white/8 bg-white/[0.04] px-4 py-4 text-sm font-medium text-slate-300"
-                    >
-                      {skill}
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <div className="reveal-up">
+              <RecruiterSignalPanel proofPoints={proofPoints} />
             </div>
           </div>
         </Container>
