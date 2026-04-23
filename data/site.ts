@@ -2,9 +2,9 @@ export const siteConfig = {
   name: "Abhishek Singh",
   title: "Full Stack Developer",
   heroLabel: "Mobile Application Developer • Full Stack Web Developer",
-  tagline: "I build fast, modern, user-friendly web experiences.",
+  tagline: "I design and ship mobile apps, full-stack web products, and real-time systems that feel polished from the first tap.",
   about:
-    "Passionate developer focused on building clean, scalable, and impactful products.",
+    "Mobile application developer and full-stack web developer focused on building clean, scalable, and impactful products across iOS, Android, and the web.",
   email: "abhishek12439525@gmail.com",
   phone: "+91 7046833865",
   github: "https://github.com/Abhishek-dev69",
@@ -24,8 +24,15 @@ export const navigation = [
 export const stats = [
   { label: "Apps on App Store + Play Store", value: "3+" },
   { label: "Core mobile stack", value: "Swift + React Native" },
-  { label: "Live web projects", value: "Multiple" },
+  { label: "Live web launches", value: "5+" },
   { label: "Training program", value: "Apple x Infosys" },
+];
+
+export const proofPoints = [
+  "Published mobile apps across App Store and Play Store",
+  "Built the UTSAV planner, vendor, and web ecosystem",
+  "Ships live web products with polished UX and performance",
+  "Combines native iOS, React Native, Supabase, and full-stack web",
 ];
 
 export const skills = [
@@ -99,9 +106,30 @@ export const experience = [
  ] satisfies ExperienceItem[];
 
 export const highlights = [
-  "Designs interfaces with an emphasis on clarity, calm motion, and conversion-friendly hierarchy.",
-  "Builds reliable full stack systems with strong attention to maintainability and developer experience.",
-  "Balances speed and polish, shipping thoughtful products without sacrificing accessibility or quality.",
+  "Designs mobile-first interfaces with clear hierarchy, polished interactions, and recruiter-friendly product storytelling.",
+  "Builds reliable app and web systems with strong attention to maintainability, real-time data, and developer experience.",
+  "Balances speed and craft, shipping thoughtful products without sacrificing accessibility, performance, or quality.",
+];
+
+export const focusAreas = [
+  {
+    title: "Mobile Applications",
+    description:
+      "Native iOS and cross-platform apps with clean navigation, store-ready polish, and practical backend integration.",
+    tools: ["Swift", "UIKit", "SwiftUI", "React Native", "Expo"],
+  },
+  {
+    title: "Full Stack Web",
+    description:
+      "Responsive web products, dashboards, and marketing sites with strong UX, fast builds, and maintainable architecture.",
+    tools: ["Next.js", "React", "Node.js", "MongoDB", "Tailwind"],
+  },
+  {
+    title: "Realtime + AI Features",
+    description:
+      "Product workflows powered by Supabase, REST APIs, push notifications, analytics, and AI-assisted experiences.",
+    tools: ["Supabase", "FastAPI", "scikit-learn", "REST APIs", "Realtime"],
+  },
 ];
 
 export type Project = {
@@ -109,6 +137,7 @@ export type Project = {
   description: string;
   category: string;
   stack: string[];
+  impact?: string;
   liveUrl?: string;
   liveLabel?: string;
   githubUrl?: string;
@@ -130,6 +159,7 @@ export const projects: Project[] = [
       "Framer Motion",
       "Zustand",
     ],
+    impact: "Multi-role event operations platform",
     imageLabel: "Premium multi-tenant event management web platform",
     githubLabel: "Private build",
   },
@@ -139,6 +169,7 @@ export const projects: Project[] = [
       "A native iOS event planner app built with UIKit for managing events, budgets, inventory, vendor proposals, payments, and in-app team communication through Supabase-backed workflows.",
     category: "iOS",
     stack: ["Swift", "UIKit", "Storyboard", "Supabase", "Native iOS Architecture"],
+    impact: "Published planner app for event teams",
     liveUrl: "https://apps.apple.com/in/app/utsaveventplanner/id6759706059",
     liveLabel: "App Store",
     imageLabel: "Native iOS planner app for event operations and coordination",
@@ -157,6 +188,7 @@ export const projects: Project[] = [
       "React Query",
       "NativeWind",
     ],
+    impact: "Published Android planner workflow",
     liveUrl:
       "https://play.google.com/store/apps/details?id=com.utsavplanner.app&pcampaignid=web_share",
     liveLabel: "Play Store",
@@ -169,6 +201,7 @@ export const projects: Project[] = [
       "A vendor-facing iOS application for handling leads, event summaries, inventory, payments, portfolio management, and chat, designed for smooth day-to-day event execution.",
     category: "iOS",
     stack: ["Swift", "UIKit", "Supabase", "Storyboard", "Vendor Operations"],
+    impact: "Published vendor operations app",
     liveUrl: "https://apps.apple.com/in/app/utsavvendor/id6759786273",
     liveLabel: "App Store",
     imageLabel: "Native iOS vendor app for leads, payments, and portfolio management",
@@ -187,6 +220,7 @@ export const projects: Project[] = [
       "React Navigation",
       "Expo Notifications",
     ],
+    impact: "Vendor-side app for leads and payments",
     imageLabel: "Vendor mobile app for leads, venue workflows, and client communication",
     githubLabel: "Local project",
   },
@@ -203,6 +237,7 @@ export const projects: Project[] = [
       "Lenis",
       "TypeScript",
     ],
+    impact: "Immersive live marketing website",
     liveUrl: "https://next-frame-3-d.vercel.app",
     liveLabel: "Live demo",
     githubUrl: "https://github.com/Abhishek-dev69/NextFrame_3D",
@@ -222,6 +257,7 @@ export const projects: Project[] = [
       "FastAPI",
       "scikit-learn",
     ],
+    impact: "AI-assisted finance dashboard",
     liveUrl: "https://expense-tracker-beryl-delta.vercel.app",
     liveLabel: "Live demo",
     githubUrl: "https://github.com/Abhishek-dev69/Expense-Tracker",
@@ -233,6 +269,7 @@ export const projects: Project[] = [
       "A browser-based workflow builder for HR operations with a drag-and-drop canvas, typed node configuration, validation, simulation, autosave, and JSON import/export.",
     category: "Frontend Tooling",
     stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "Zustand", "React Flow"],
+    impact: "Visual workflow builder with simulation",
     liveUrl: "https://tredence-omega.vercel.app/",
     liveLabel: "Live demo",
     githubUrl: "https://github.com/Abhishek-dev69/Tredence",
@@ -244,6 +281,7 @@ export const projects: Project[] = [
       "A MERN-based car rental marketplace where users can browse and book cars while owners manage listings through a responsive full stack web experience.",
     category: "Full Stack",
     stack: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "REST API"],
+    impact: "Live MERN marketplace",
     liveUrl: "https://car-rental-website-eta-eight.vercel.app/",
     liveLabel: "Live demo",
     githubUrl: "https://github.com/Abhishek-dev69/CarRental-fullstack",
@@ -255,6 +293,7 @@ export const projects: Project[] = [
       "A computer vision project using trained YOLOv8 assets and labeled drone imagery to detect unauthorized drones, with reusable dataset metadata and inference-ready weights.",
     category: "AI / Computer Vision",
     stack: ["Python", "YOLOv8", "Roboflow", "Computer Vision", "Model Inference"],
+    impact: "Computer vision model assets",
     githubUrl: "https://github.com/Abhishek-dev69/Unauthorized-Drone-Detection",
     imageLabel: "Drone detection model assets and test inference setup",
   },
@@ -264,6 +303,7 @@ export const projects: Project[] = [
       "A polished UIKit productivity dashboard for iOS with dynamic dark and light mode support, reusable components, premium cards, and clean programmatic layout work.",
     category: "iOS",
     stack: ["Swift", "UIKit", "Auto Layout", "Core Animation", "Dynamic UIColor"],
+    impact: "Polished native UI system",
     githubUrl:
       "https://github.com/Abhishek-dev69/UIKIT-Learning-Dark-Mode-and-Light-Mode-",
     imageLabel: "iOS productivity dashboard with premium visual system",
