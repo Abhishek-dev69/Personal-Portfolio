@@ -27,7 +27,7 @@ export function ButtonLink({
   download = false,
   className = "",
 }: ButtonLinkProps) {
-  const sharedClassName = `inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 ${styles[variant]} ${className}`;
+  const sharedClassName = `motion-button inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 ${styles[variant]} ${className}`;
 
   if (external || download) {
     return (

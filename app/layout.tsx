@@ -78,8 +78,8 @@ export default function RootLayout({
           Skip to content
         </a>
         <div className="relative min-h-screen bg-background text-foreground">
-          <div className="pointer-events-none absolute inset-0 bg-mesh-glow" />
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:120px_120px] opacity-[0.06]" />
+          <div className="ambient-mesh pointer-events-none absolute inset-0 bg-mesh-glow" />
+          <div className="ambient-grid pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:120px_120px] opacity-[0.06]" />
           <div className="relative flex min-h-screen flex-col">
             <SiteHeader />
             <main id="main-content" className="flex-1">

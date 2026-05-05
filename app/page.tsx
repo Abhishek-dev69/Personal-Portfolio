@@ -83,7 +83,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="section-space pt-0">
+      <section className="section-space scroll-reveal pt-0">
         <Container className="space-y-10">
           <SectionHeading
             eyebrow="What I Build"
@@ -94,7 +94,7 @@ export default function HomePage() {
             {focusAreas.map((area, index) => (
               <article
                 key={area.title}
-                className="surface reveal-up relative overflow-hidden p-6 sm:p-7"
+                className="surface reveal-up relative overflow-hidden p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/30 hover:bg-white/[0.045] sm:p-7"
                 style={{ animationDelay: `${index * 90}ms` }}
               >
                 <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-accent/10 blur-3xl" />
@@ -125,7 +125,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="section-space">
+      <section className="section-space scroll-reveal">
         <Container className="space-y-10">
           <SectionHeading
             eyebrow="About"
@@ -133,7 +133,7 @@ export default function HomePage() {
             description="I blend mobile engineering, frontend polish, backend integration, and product thinking to create experiences that feel useful, credible, and ready to ship."
           />
           <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="surface p-6 sm:p-8">
+            <div className="surface p-6 transition duration-300 hover:border-accent/25 sm:p-8">
               <p className="max-w-3xl text-base leading-8 text-slate-300">
                 My work blends product thinking, native mobile development, frontend polish,
                 and practical backend architecture. I care about the small details that make
@@ -141,7 +141,7 @@ export default function HomePage() {
                 smooth execution.
               </p>
             </div>
-            <div className="surface p-6 sm:p-8">
+            <div className="surface p-6 transition duration-300 hover:border-accent/25 sm:p-8">
               <p className="text-sm uppercase tracking-[0.24em] text-slate-400">Currently</p>
               <p className="mt-4 text-base leading-7 text-slate-300">
                 Creating mobile apps, live web platforms, and product systems for teams that
@@ -152,7 +152,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="section-space">
+      <section className="section-space scroll-reveal">
         <Container className="space-y-10">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
@@ -169,7 +169,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="section-space">
+      <section className="section-space scroll-reveal">
         <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionHeading
             eyebrow="Skills"
@@ -189,7 +189,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="section-space">
+      <section className="section-space scroll-reveal">
         <Container className="space-y-10">
           <SectionHeading
             eyebrow="Experience"
@@ -200,7 +200,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="section-space">
+      <section className="section-space scroll-reveal">
         <Container>
           <div className="surface relative overflow-hidden p-6 sm:p-8 lg:p-10">
             <div className="absolute left-0 top-0 h-40 w-40 rounded-full bg-accent/10 blur-3xl" />

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <section className="section-space">
+    <section className="section-space scroll-reveal">
       <Container className="space-y-16">
         <SectionHeading
           eyebrow="About"

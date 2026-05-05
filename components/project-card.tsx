@@ -6,7 +6,7 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="group relative h-full overflow-hidden rounded-[1.75rem] border border-white/10 bg-card/80 shadow-soft transition duration-300 hover:-translate-y-1.5 hover:border-accent/35">
+    <article className="project-card-premium group relative h-full overflow-hidden rounded-[1.75rem] border border-white/10 bg-card/80 shadow-soft transition duration-300 hover:-translate-y-1.5 hover:border-accent/35">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(66,219,191,0.14),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(245,158,11,0.12),transparent_28%)] opacity-60 transition duration-300 group-hover:opacity-100" />
       <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
 
@@ -53,7 +53,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2.5 text-sm font-medium text-slate-950 transition hover:-translate-y-0.5 hover:bg-[#7bf0da] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                className="motion-button inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2.5 text-sm font-medium text-slate-950 transition hover:-translate-y-0.5 hover:bg-[#7bf0da] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               >
                 {project.liveLabel ?? "Live demo"}
                 <span aria-hidden="true">↗</span>
@@ -69,7 +69,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                className="motion-button inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               >
                 {project.githubLabel ?? "GitHub"}
                 <span aria-hidden="true">↗</span>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="section-space">
+    <section className="section-space scroll-reveal">
       <Container className="space-y-12">
         <SectionHeading
           eyebrow="Contact"

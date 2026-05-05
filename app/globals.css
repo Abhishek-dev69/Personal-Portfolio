@@ -119,6 +119,68 @@ body {
   animation: reveal-up 700ms ease both;
 }
 
+.ambient-mesh {
+  animation: mesh-drift 18s ease-in-out infinite alternate;
+  transform-origin: 70% 10%;
+}
+
+.ambient-grid {
+  animation: grid-drift 28s linear infinite;
+}
+
+.motion-button {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  transition-property: transform, border-color, background-color, color, box-shadow;
+}
+
+.motion-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 28%, rgba(255, 255, 255, 0.18), transparent 64%);
+  transform: translateX(-140%);
+  transition: transform 650ms ease;
+}
+
+.motion-button:hover::after {
+  transform: translateX(140%);
+}
+
+.motion-button:hover {
+  transform: translateY(-2px) scale(1.01);
+}
+
+.motion-button:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.project-card-premium {
+  isolation: isolate;
+}
+
+.project-card-premium::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.12), transparent 66%);
+  transform: translateX(-125%);
+  transition: transform 850ms ease;
+}
+
+.project-card-premium:hover::before {
+  transform: translateX(125%);
+}
+
+.project-card-premium:hover {
+  box-shadow: 0 32px 90px rgba(3, 7, 18, 0.46), 0 0 70px rgba(66, 219, 191, 0.1);
+}
+
 .hero-stat-card {
   position: relative;
   overflow: hidden;
@@ -155,6 +217,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background: linear-gradient(90deg, transparent, rgba(66, 219, 191, 0.12), transparent);
   transform: translateX(-120%);
   animation: signal-row-scan 5s ease-in-out infinite;
@@ -208,6 +271,28 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes mesh-drift {
+  from {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0.9;
+  }
+
+  to {
+    transform: scale(1.08) translate3d(-1.5rem, 1rem, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes grid-drift {
+  from {
+    background-position: 0 0, 0 0;
+  }
+
+  to {
+    background-position: 120px 120px, 120px 120px;
   }
 }
 
@@ -269,6 +354,26 @@ body {
   }
 }
 
+@supports (animation-timeline: view()) {
+  .scroll-reveal {
+    animation: section-reveal both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 26%;
+  }
+}
+
+@keyframes section-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 ::selection {
   background: rgba(66, 219, 191, 0.28);
   color: white;
@@ -325,6 +430,9 @@ svg {
   }
 
   .recruiter-panel,
+  .ambient-mesh,
+  .ambient-grid,
+  .scroll-reveal,
   .scanner-sweep,
   .signal-row::after,
   .pulse-badge,
