@@ -40,114 +40,144 @@ export function SiteHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/8 bg-slate-950/80 backdrop-blur-xl">
+    <header className="sticky top-3 z-50 px-3 sm:top-4">
       <Container>
-        <div className="flex h-18 items-center justify-between gap-4 py-4">
-          <Link
-            href="/"
-            className="group inline-flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-            aria-label={`${siteConfig.name} home`}
-          >
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/6 text-white transition group-hover:border-accent/40 group-hover:bg-white/10">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.1"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M5 19 12 5l7 14" />
-                <path d="M8.8 13h6.4" />
-              </svg>
-            </span>
-            <span className="hidden flex-col sm:flex">
-              <span className="font-display text-sm font-semibold tracking-wide text-white">
-                {siteConfig.name}
+        <div className="site-navbar relative">
+          <div className="relative flex min-h-16 items-center justify-between gap-3 overflow-hidden rounded-full border border-white/10 bg-slate-950/72 px-3 py-2 shadow-[0_18px_70px_rgba(3,7,18,0.34)] backdrop-blur-2xl sm:px-4">
+            <span
+              aria-hidden="true"
+              className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
+            />
+            <Link
+              href="/"
+              className="group inline-flex min-w-0 items-center gap-3 rounded-full pr-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              aria-label={`${siteConfig.name} home`}
+              onClick={() => setOpen(false)}
+            >
+              <span className="relative flex h-11 w-11 flex-none items-center justify-center rounded-full border border-accent/25 bg-accent/12 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_12px_34px_rgba(66,219,191,0.14)] transition group-hover:scale-105 group-hover:border-accent/50">
+                <span className="absolute inset-1 rounded-full bg-[radial-gradient(circle_at_35%_25%,rgba(255,255,255,0.28),transparent_38%)]" />
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="relative h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.15"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 19 12 5l7 14" />
+                  <path d="M8.8 13h6.4" />
+                </svg>
               </span>
-              <span className="text-xs text-slate-400">{siteConfig.title}</span>
-            </span>
-          </Link>
+              <span className="hidden min-w-0 flex-col sm:flex">
+                <span className="truncate font-display text-sm font-semibold tracking-wide text-white">
+                  {siteConfig.name}
+                </span>
+                <span className="truncate text-[11px] text-slate-400">
+                  Mobile App + Web Developer
+                </span>
+              </span>
+            </Link>
 
-          <nav className="hidden items-center gap-2 md:flex" aria-label="Primary">
-            {navigation.map((item) => (
-              <NavLink key={item.href} href={item.href} label={item.label} />
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-slate-200 transition hover:bg-white/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            <nav
+              className="hidden items-center gap-1 rounded-full border border-white/8 bg-white/[0.045] p-1 md:flex"
+              aria-label="Primary"
             >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                {theme === "dark" ? (
-                  <>
-                    <circle cx="12" cy="12" r="4" />
-                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-                  </>
-                ) : (
-                  <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5Z" />
-                )}
-              </svg>
-            </button>
+              {navigation.map((item) => (
+                <NavLink key={item.href} href={item.href} label={item.label} />
+              ))}
+            </nav>
 
-            <button
-              type="button"
-              onClick={() => setOpen((current) => !current)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-slate-200 transition hover:bg-white/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 md:hidden"
-              aria-expanded={open}
-              aria-controls="mobile-navigation"
-              aria-label={open ? "Close menu" : "Open menu"}
-            >
-              <span className="sr-only">Toggle navigation</span>
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
+            <div className="flex items-center gap-2">
+              <a
+                href={siteConfig.resumeHref}
+                download
+                className="motion-button hidden rounded-full border border-white/10 bg-white/[0.055] px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-accent/35 hover:bg-white/[0.085] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:inline-flex"
               >
-                {open ? (
-                  <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
-                ) : (
-                  <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
-                )}
-              </svg>
-            </button>
+                Resume
+              </a>
+
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="motion-button inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.055] text-slate-200 transition hover:border-accent/30 hover:bg-white/[0.085] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              >
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  {theme === "dark" ? (
+                    <>
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                    </>
+                  ) : (
+                    <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5Z" />
+                  )}
+                </svg>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setOpen((current) => !current)}
+                className="motion-button inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.055] text-slate-200 transition hover:border-accent/30 hover:bg-white/[0.085] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 md:hidden"
+                aria-expanded={open}
+                aria-controls="mobile-navigation"
+                aria-label={open ? "Close menu" : "Open menu"}
+              >
+                <span className="sr-only">Toggle navigation</span>
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                >
+                  {open ? (
+                    <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+                  ) : (
+                    <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
-        </div>
 
-        {open ? (
-          <nav
-            id="mobile-navigation"
-            className="grid gap-2 border-t border-white/8 pb-5 pt-4 md:hidden"
-            aria-label="Mobile"
-          >
-            {navigation.map((item) => (
-              <NavLink
-                key={item.href}
-                href={item.href}
-                label={item.label}
-                onNavigate={() => setOpen(false)}
-              />
-            ))}
-          </nav>
-        ) : null}
+          {open ? (
+            <nav
+              id="mobile-navigation"
+              className="mobile-nav-panel absolute left-0 right-0 top-[calc(100%+0.75rem)] grid gap-2 rounded-[1.5rem] border border-white/10 bg-slate-950/92 p-3 shadow-[0_24px_80px_rgba(3,7,18,0.42)] backdrop-blur-2xl md:hidden"
+              aria-label="Mobile"
+            >
+              {navigation.map((item) => (
+                <NavLink
+                  key={item.href}
+                  href={item.href}
+                  label={item.label}
+                  variant="mobile"
+                  onNavigate={() => setOpen(false)}
+                />
+              ))}
+              <a
+                href={siteConfig.resumeHref}
+                download
+                className="motion-button mt-1 inline-flex items-center justify-center rounded-full bg-accent px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-[#7bf0da] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                onClick={() => setOpen(false)}
+              >
+                Download resume
+              </a>
+            </nav>
+          ) : null}
+        </div>
       </Container>
     </header>
   );
