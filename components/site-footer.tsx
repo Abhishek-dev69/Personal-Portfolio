@@ -3,7 +3,7 @@ import { Container } from "@/components/container";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/8 py-10">
+    <footer className="relative z-10 mt-auto shrink-0 border-t border-white/8 bg-slate-950/75 py-6 backdrop-blur-xl sm:py-8">
       <Container className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-2">
           <p className="font-display text-lg font-semibold text-white">{siteConfig.name}</p>
