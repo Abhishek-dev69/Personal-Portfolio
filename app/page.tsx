@@ -18,7 +18,10 @@ import {
 export default function HomePage() {
   return (
     <>
-      <section className="section-space relative overflow-hidden pt-10 sm:pt-14 lg:pt-20">
+      <section
+        id="home"
+        className="section-space scroll-mt-32 relative overflow-hidden pt-10 sm:pt-14 lg:pt-20"
+      >
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             <div className="reveal-up space-y-8">
@@ -125,7 +128,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="section-space scroll-reveal">
+      <section id="about" className="section-space scroll-reveal scroll-mt-32">
         <Container className="space-y-10">
           <SectionHeading
             eyebrow="About"
@@ -152,7 +155,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="section-space scroll-reveal">
+      <section id="projects" className="section-space scroll-reveal scroll-mt-32">
         <Container className="space-y-10">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
@@ -189,7 +192,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="section-space scroll-reveal">
+      <section id="experience" className="section-space scroll-reveal scroll-mt-32">
         <Container className="space-y-10">
           <SectionHeading
             eyebrow="Experience"
@@ -200,7 +203,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="section-space scroll-reveal">
+      <section id="contact" className="section-space scroll-reveal scroll-mt-32">
         <Container>
           <div className="surface relative overflow-hidden p-6 sm:p-8 lg:p-10">
             <div className="absolute left-0 top-0 h-40 w-40 rounded-full bg-accent/10 blur-3xl" />
