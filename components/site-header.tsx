@@ -2,15 +2,26 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { navigation, siteConfig } from "@/data/site";
 import { Container } from "@/components/container";
 import { NavLink } from "@/components/nav-link";
 
 type Theme = "dark" | "light";
 
+const homeScrollTargets = [
+  { href: "/", id: "home" },
+  { href: "/about", id: "about" },
+  { href: "/projects", id: "projects" },
+  { href: "/#experience", id: "experience" },
+  { href: "/contact", id: "contact" },
+];
+
 export function SiteHeader() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState<Theme>("dark");
+  const [activeHref, setActiveHref] = useState("/");
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem("portfolio-theme") as Theme | null;
@@ -22,7 +33,7 @@ export function SiteHeader() {
 
   useEffect(() => {
     const onResize = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1024) {
         setOpen(false);
       }
     };
@@ -30,6 +41,51 @@ export function SiteHeader() {
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveHref(pathname);
+      return;
+    }
+
+    let animationFrame = 0;
+
+    const updateActiveSection = () => {
+      cancelAnimationFrame(animationFrame);
+
+      animationFrame = requestAnimationFrame(() => {
+        const checkpoint = Math.min(window.innerHeight * 0.38, 300);
+        const nearBottom =
+          window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+
+        let nextHref = "/";
+
+        for (const target of homeScrollTargets) {
+          const section = document.getElementById(target.id);
+
+          if (section && section.getBoundingClientRect().top <= checkpoint) {
+            nextHref = target.href;
+          }
+        }
+
+        if (nearBottom) {
+          nextHref = "/contact";
+        }
+
+        setActiveHref((current) => (current === nextHref ? current : nextHref));
+      });
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, [pathname]);
 
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
@@ -81,11 +137,16 @@ export function SiteHeader() {
             </Link>
 
             <nav
-              className="hidden items-center gap-1 rounded-full border border-white/8 bg-white/[0.045] p-1 md:flex"
+              className="hidden items-center gap-1 rounded-full border border-white/8 bg-white/[0.045] p-1 lg:flex"
               aria-label="Primary"
             >
               {navigation.map((item) => (
-                <NavLink key={item.href} href={item.href} label={item.label} />
+                <NavLink
+                  key={item.href}
+                  href={item.href}
+                  label={item.label}
+                  active={activeHref === item.href}
+                />
               ))}
             </nav>
 
@@ -128,7 +189,7 @@ export function SiteHeader() {
               <button
                 type="button"
                 onClick={() => setOpen((current) => !current)}
-                className="motion-button inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.055] text-slate-200 transition hover:border-accent/30 hover:bg-white/[0.085] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 md:hidden"
+                className="motion-button inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.055] text-slate-200 transition hover:border-accent/30 hover:bg-white/[0.085] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 lg:hidden"
                 aria-expanded={open}
                 aria-controls="mobile-navigation"
                 aria-label={open ? "Close menu" : "Open menu"}
@@ -155,7 +216,7 @@ export function SiteHeader() {
           {open ? (
             <nav
               id="mobile-navigation"
-              className="mobile-nav-panel absolute left-0 right-0 top-[calc(100%+0.75rem)] grid gap-2 rounded-[1.5rem] border border-white/10 bg-slate-950/92 p-3 shadow-[0_24px_80px_rgba(3,7,18,0.42)] backdrop-blur-2xl md:hidden"
+              className="mobile-nav-panel absolute left-0 right-0 top-[calc(100%+0.75rem)] grid gap-2 rounded-[1.5rem] border border-white/10 bg-slate-950/92 p-3 shadow-[0_24px_80px_rgba(3,7,18,0.42)] backdrop-blur-2xl lg:hidden"
               aria-label="Mobile"
             >
               {navigation.map((item) => (
@@ -163,6 +224,7 @@ export function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   label={item.label}
+                  active={activeHref === item.href}
                   variant="mobile"
                   onNavigate={() => setOpen(false)}
                 />
