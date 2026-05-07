@@ -6,13 +6,22 @@ import { usePathname } from "next/navigation";
 type NavLinkProps = {
   href: string;
   label: string;
+  active?: boolean;
   onNavigate?: () => void;
   variant?: "desktop" | "mobile";
 };
 
-export function NavLink({ href, label, onNavigate, variant = "desktop" }: NavLinkProps) {
+export function NavLink({
+  href,
+  label,
+  active: activeOverride,
+  onNavigate,
+  variant = "desktop",
+}: NavLinkProps) {
   const pathname = usePathname();
-  const active = pathname === href;
+  const hasHash = href.includes("#");
+  const routeHref = hasHash ? href.split("#")[0] || "/" : href;
+  const active = activeOverride ?? (!hasHash && pathname === routeHref);
   const baseClassName =
     "nav-link motion-button relative rounded-full text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950";
 
