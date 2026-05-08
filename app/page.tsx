@@ -25,8 +25,8 @@ export default function HomePage() {
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             <div className="reveal-up space-y-8">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.22em] text-slate-300">
-                <span className="h-2.5 w-2.5 rounded-full bg-accent" />
+              <div className="hero-kicker inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.22em] text-slate-300">
+                <span className="status-dot h-2.5 w-2.5 rounded-full bg-accent" />
                 Open to mobile + full-stack roles
               </div>
 
@@ -97,7 +97,7 @@ export default function HomePage() {
             {focusAreas.map((area, index) => (
               <article
                 key={area.title}
-                className="surface reveal-up relative overflow-hidden p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/30 hover:bg-white/[0.045] sm:p-7"
+                className="focus-card surface reveal-up relative overflow-hidden p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/30 hover:bg-white/[0.045] sm:p-7"
                 style={{ animationDelay: `${index * 90}ms` }}
               >
                 <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-accent/10 blur-3xl" />
@@ -183,7 +183,7 @@ export default function HomePage() {
             {skills.map((skill) => (
               <div
                 key={skill}
-                className="rounded-[1.35rem] border border-white/10 bg-white/[0.04] px-4 py-4 text-sm text-slate-200 transition hover:border-white/20 hover:bg-white/[0.06]"
+                className="skill-pill rounded-[1.35rem] border border-white/10 bg-white/[0.04] px-4 py-4 text-sm text-slate-200 transition hover:border-white/20 hover:bg-white/[0.06]"
               >
                 {skill}
               </div>
