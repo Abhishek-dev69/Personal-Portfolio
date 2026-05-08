@@ -22,6 +22,11 @@ export default function HomePage() {
         id="home"
         className="section-space scroll-mt-32 relative overflow-hidden pt-10 sm:pt-14 lg:pt-20"
       >
+        <div className="hero-orbits pointer-events-none absolute inset-0" aria-hidden="true">
+          <span className="hero-orbit hero-orbit-one" />
+          <span className="hero-orbit hero-orbit-two" />
+          <span className="hero-orbit hero-orbit-three" />
+        </div>
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             <div className="reveal-up space-y-8">
