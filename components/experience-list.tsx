@@ -7,8 +7,12 @@ type ExperienceListProps = {
 export function ExperienceList({ items }: ExperienceListProps) {
   return (
     <div className="grid gap-5">
-      {items.map((item) => (
-        <article key={`${item.organization}-${item.period}`} className="surface p-6 sm:p-8">
+      {items.map((item, index) => (
+        <article
+          key={`${item.organization}-${item.period}`}
+          className="experience-card surface p-6 sm:p-8"
+          style={{ animationDelay: `${index * 100}ms` }}
+        >
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
             <div className="space-y-3">
               <h3 className="font-display text-2xl font-semibold tracking-tight text-white">
