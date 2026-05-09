@@ -50,6 +50,27 @@ export function SiteHeader() {
 
     let animationFrame = 0;
 
+    const scrollToHashTarget = () => {
+      const targetId = window.location.hash.slice(1);
+
+      if (!targetId) {
+        return;
+      }
+
+      const target = document.getElementById(targetId);
+      const matchingTarget = homeScrollTargets.find((item) => item.id === targetId);
+
+      if (matchingTarget) {
+        setActiveHref(matchingTarget.href);
+      }
+
+      if (target) {
+        requestAnimationFrame(() => {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
+    };
+
     const updateActiveSection = () => {
       cancelAnimationFrame(animationFrame);
 
@@ -76,12 +97,18 @@ export function SiteHeader() {
       });
     };
 
-    updateActiveSection();
+    scrollToHashTarget();
+
+    if (!window.location.hash) {
+      updateActiveSection();
+    }
+    window.addEventListener("hashchange", scrollToHashTarget);
     window.addEventListener("scroll", updateActiveSection, { passive: true });
     window.addEventListener("resize", updateActiveSection);
 
     return () => {
       cancelAnimationFrame(animationFrame);
+      window.removeEventListener("hashchange", scrollToHashTarget);
       window.removeEventListener("scroll", updateActiveSection);
       window.removeEventListener("resize", updateActiveSection);
     };
@@ -108,7 +135,10 @@ export function SiteHeader() {
               href="/"
               className="group inline-flex min-w-0 items-center gap-3 rounded-full pr-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
               aria-label={`${siteConfig.name} home`}
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setActiveHref("/");
+                setOpen(false);
+              }}
             >
               <span className="relative flex h-11 w-11 flex-none items-center justify-center rounded-full border border-accent/25 bg-accent/12 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_12px_34px_rgba(66,219,191,0.14)] transition group-hover:scale-105 group-hover:border-accent/50">
                 <span className="absolute inset-1 rounded-full bg-[radial-gradient(circle_at_35%_25%,rgba(255,255,255,0.28),transparent_38%)]" />
@@ -146,6 +176,7 @@ export function SiteHeader() {
                   href={item.href}
                   label={item.label}
                   active={activeHref === item.href}
+                  onNavigate={() => setActiveHref(item.href)}
                 />
               ))}
             </nav>
@@ -226,7 +257,10 @@ export function SiteHeader() {
                   label={item.label}
                   active={activeHref === item.href}
                   variant="mobile"
-                  onNavigate={() => setOpen(false)}
+                  onNavigate={() => {
+                    setActiveHref(item.href);
+                    setOpen(false);
+                  }}
                 />
               ))}
               <a

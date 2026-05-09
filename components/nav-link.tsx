@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { MouseEvent } from "react";
 
 type NavLinkProps = {
   href: string;
@@ -30,10 +31,29 @@ export function NavLink({
       ? "flex items-center justify-between px-4 py-3"
       : "px-4 py-2";
 
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    const targetId = hasHash ? href.split("#")[1] : "";
+    const isSamePageHash = Boolean(targetId && routeHref === pathname);
+
+    if (isSamePageHash) {
+      const target = document.getElementById(targetId);
+
+      if (target) {
+        event.preventDefault();
+        onNavigate?.();
+        window.history.pushState(null, "", href);
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+    }
+
+    onNavigate?.();
+  };
+
   return (
     <Link
       href={href}
-      onClick={onNavigate}
+      onClick={handleClick}
       className={`${baseClassName} ${variantClassName} ${
         active
           ? "bg-accent text-slate-950 shadow-[0_12px_28px_rgba(66,219,191,0.18)]"
