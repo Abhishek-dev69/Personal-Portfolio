@@ -74,6 +74,13 @@ body {
   background-color: rgba(15, 23, 42, 0.06) !important;
 }
 
+[data-theme="light"] .back-to-top {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  background-color: rgba(255, 255, 255, 0.86) !important;
+  color: #0f172a !important;
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.14) !important;
+}
+
 [data-theme="light"] .surface,
 [data-theme="light"] article {
   border-color: rgba(15, 23, 42, 0.12) !important;
@@ -257,6 +264,10 @@ body {
 
 .motion-button:active {
   transform: translateY(0) scale(0.99);
+}
+
+.back-to-top {
+  animation: back-to-top-float 4.5s ease-in-out infinite;
 }
 
 .mobile-nav-panel {
@@ -467,6 +478,17 @@ body {
   }
 }
 
+@keyframes back-to-top-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
 @keyframes orbit-drift {
   from {
     transform: rotate(0deg) translate3d(0, 0, 0);
@@ -649,6 +671,7 @@ svg {
   .hero-kicker,
   .status-dot,
   .hero-orbit,
+  .back-to-top,
   .experience-card,
   .ambient-mesh,
   .ambient-grid,
