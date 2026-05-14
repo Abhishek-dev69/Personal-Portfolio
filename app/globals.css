@@ -341,6 +341,61 @@ body {
   box-shadow: 0 32px 90px rgba(3, 7, 18, 0.46), 0 0 70px rgba(66, 219, 191, 0.1);
 }
 
+.trend-bento-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    transform 320ms ease,
+    border-color 320ms ease,
+    background-color 320ms ease,
+    box-shadow 320ms ease;
+}
+
+.trend-bento-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(66, 219, 191, 0.18), transparent 36%),
+    radial-gradient(circle at 100% 100%, rgba(248, 212, 138, 0.12), transparent 34%);
+  opacity: 0.58;
+  transition: opacity 320ms ease, transform 320ms ease;
+}
+
+.trend-bento-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 28%, rgba(255, 255, 255, 0.1), transparent 66%);
+  transform: translateX(-130%);
+  transition: transform 900ms ease;
+}
+
+.trend-bento-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.trend-bento-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(66, 219, 191, 0.28);
+  box-shadow: 0 34px 90px rgba(3, 7, 18, 0.34), 0 0 70px rgba(66, 219, 191, 0.08);
+}
+
+.trend-bento-card:hover::before {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.trend-bento-card:hover::after {
+  transform: translateX(130%);
+}
+
 .hero-stat-card {
   position: relative;
   overflow: hidden;
@@ -677,6 +732,7 @@ svg {
   .ambient-grid,
   .scroll-reveal,
   .mobile-nav-panel,
+  .trend-bento-card,
   .scanner-sweep,
   .signal-row::after,
   .pulse-badge,

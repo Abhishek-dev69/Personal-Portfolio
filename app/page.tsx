@@ -2,12 +2,12 @@ import { ButtonLink } from "@/components/button-link";
 import { Container } from "@/components/container";
 import { ExperienceList } from "@/components/experience-list";
 import { FeaturedProjectsMarquee } from "@/components/featured-projects-marquee";
+import { ProofBento } from "@/components/proof-bento";
 import { RecruiterSignalPanel } from "@/components/recruiter-signal-panel";
 import { SectionHeading } from "@/components/section-heading";
 import {
   experience,
   focusAreas,
-  highlights,
   projects,
   proofPoints,
   siteConfig,
@@ -92,6 +92,17 @@ export default function HomePage() {
       </section>
 
       <section className="section-space scroll-reveal pt-0">
+        <Container className="space-y-10">
+          <SectionHeading
+            eyebrow="Recruiter Proof"
+            title="A proof-led portfolio experience built for fast scanning and deeper trust."
+            description="Inspired by current portfolio patterns: bento evidence blocks, outcome-first storytelling, bold hierarchy, and subtle motion that supports the work instead of distracting from it."
+          />
+          <ProofBento />
+        </Container>
+      </section>
+
+      <section className="section-space scroll-reveal">
         <Container className="space-y-10">
           <SectionHeading
             eyebrow="What I Build"

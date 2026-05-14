@@ -8,8 +8,8 @@ export function SiteFooter() {
         <div className="space-y-2">
           <p className="font-display text-lg font-semibold text-white">{siteConfig.name}</p>
           <p className="max-w-md text-sm leading-6 text-slate-400">
-            Built for clarity, speed, and easy customization. Replace the placeholder
-            content with your work and deploy when you are ready.
+            Mobile app and full-stack web developer shipping published apps, live
+            products, and polished product experiences.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
