@@ -13,7 +13,7 @@ const homeScrollTargets = [
   { href: "/", id: "home" },
   { href: "/about", id: "about" },
   { href: "/projects", id: "projects" },
-  { href: "/#experience", id: "experience" },
+  { href: "/experience", id: "experience" },
   { href: "/contact", id: "contact" },
 ];
 
