@@ -133,6 +133,41 @@ export const focusAreas = [
   },
 ];
 
+export const signatureCards = [
+  {
+    eyebrow: "Native Apps",
+    title: "Store-ready iOS craft",
+    description:
+      "Clean Swift, UIKit, and SwiftUI experiences with polished interaction details and production-minded architecture.",
+    metric: "Swift + UIKit",
+    tags: ["App Store", "Responsive UI", "Supabase"],
+  },
+  {
+    eyebrow: "Cross Platform",
+    title: "Fast mobile delivery",
+    description:
+      "React Native and Expo builds that keep Android and iOS workflows consistent, scalable, and pleasant to use.",
+    metric: "React Native",
+    tags: ["Expo", "Navigation", "Push"],
+  },
+  {
+    eyebrow: "Full Stack",
+    title: "Live product systems",
+    description:
+      "Next.js platforms, dashboards, and backend-connected flows built for speed, clarity, and real product usage.",
+    metric: "5+ launches",
+    tags: ["Next.js", "Node.js", "REST APIs"],
+  },
+  {
+    eyebrow: "Product Thinking",
+    title: "UX with purpose",
+    description:
+      "Interfaces shaped around hierarchy, accessibility, and decisions that help users understand what to do next.",
+    metric: "Clarity first",
+    tags: ["Accessibility", "Motion", "Performance"],
+  },
+];
+
 export type Project = {
   title: string;
   description: string;
