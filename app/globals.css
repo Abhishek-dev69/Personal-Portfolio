@@ -396,6 +396,76 @@ body {
   transform: translateX(130%);
 }
 
+.signature-card {
+  position: relative;
+  isolation: isolate;
+  min-height: 21rem;
+  overflow: hidden;
+  animation: signature-card-rise 760ms ease both;
+  transition:
+    transform 320ms ease,
+    border-color 320ms ease,
+    background-color 320ms ease,
+    box-shadow 320ms ease;
+}
+
+.signature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(66, 219, 191, 0.14), transparent 38%),
+    radial-gradient(circle at 92% 6%, rgba(248, 212, 138, 0.16), transparent 26%);
+  opacity: 0.7;
+  transition: opacity 320ms ease;
+}
+
+.signature-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 26%, rgba(255, 255, 255, 0.11), transparent 68%);
+  transform: translateX(-130%);
+  transition: transform 900ms ease;
+}
+
+.signature-card:hover {
+  transform: translateY(-7px) scale(1.01);
+  border-color: rgba(66, 219, 191, 0.3);
+  box-shadow: 0 30px 90px rgba(3, 7, 18, 0.38), 0 0 70px rgba(66, 219, 191, 0.1);
+}
+
+.signature-card:hover::before {
+  opacity: 1;
+}
+
+.signature-card:hover::after {
+  transform: translateX(130%);
+}
+
+.signature-card-orb {
+  position: absolute;
+  right: -1.5rem;
+  top: -1.5rem;
+  height: 8rem;
+  width: 8rem;
+  border-radius: 9999px;
+  background: rgba(66, 219, 191, 0.14);
+  filter: blur(8px);
+  animation: signature-orb 6.5s ease-in-out infinite;
+}
+
+.signature-card-index {
+  transition: transform 320ms ease, color 320ms ease;
+}
+
+.signature-card:hover .signature-card-index {
+  color: rgba(66, 219, 191, 0.28);
+  transform: translateY(-4px) rotate(-4deg);
+}
+
 .hero-stat-card {
   position: relative;
   overflow: hidden;
@@ -646,6 +716,29 @@ body {
   }
 }
 
+@keyframes signature-card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes signature-orb {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-10px, 10px, 0) scale(1.12);
+  }
+}
+
 @supports (animation-timeline: view()) {
   .scroll-reveal {
     animation: section-reveal both;
@@ -733,6 +826,8 @@ svg {
   .scroll-reveal,
   .mobile-nav-panel,
   .trend-bento-card,
+  .signature-card,
+  .signature-card-orb,
   .scanner-sweep,
   .signal-row::after,
   .pulse-badge,
