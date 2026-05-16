@@ -5,6 +5,7 @@ import { FeaturedProjectsMarquee } from "@/components/featured-projects-marquee"
 import { ProofBento } from "@/components/proof-bento";
 import { RecruiterSignalPanel } from "@/components/recruiter-signal-panel";
 import { SectionHeading } from "@/components/section-heading";
+import { SignatureCards } from "@/components/signature-cards";
 import {
   experience,
   focusAreas,
@@ -141,6 +142,17 @@ export default function HomePage() {
               </article>
             ))}
           </div>
+        </Container>
+      </section>
+
+      <section className="section-space scroll-reveal pt-0">
+        <Container className="space-y-10">
+          <SectionHeading
+            eyebrow="Signature Strengths"
+            title="Cards that show how I build, not just what tools I use."
+            description="A sharper snapshot of the areas I bring together across mobile engineering, full-stack delivery, and polished product UX."
+          />
+          <SignatureCards />
         </Container>
       </section>
 
