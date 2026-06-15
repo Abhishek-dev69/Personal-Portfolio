@@ -1,4 +1,4 @@
-import { Project } from "@/data/site";
+import type { Project } from "@/data/site";
 import { ProjectCard } from "@/components/project-card";
 
 type FeaturedProjectsMarqueeProps = {
@@ -17,10 +17,13 @@ export function FeaturedProjectsMarquee({ projects }: FeaturedProjectsMarqueePro
         {marqueeProjects.map((project, index) => (
           <div
             key={`${project.title}-${index}`}
-            className="w-[320px] flex-none sm:w-[360px] xl:w-[390px]"
+            className={`w-[min(84vw,350px)] flex-none sm:w-[370px] xl:w-[400px] ${
+              index >= projects.length ? "hidden md:block" : ""
+            }`}
             aria-hidden={index >= projects.length}
+            inert={index >= projects.length}
           >
-            <ProjectCard project={project} />
+            <ProjectCard project={project} index={index % projects.length} />
           </div>
         ))}
       </div>
