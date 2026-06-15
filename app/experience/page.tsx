@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/container";
 import { ExperienceList } from "@/components/experience-list";
+import { MotionSection } from "@/components/motion-section";
 import { SectionHeading } from "@/components/section-heading";
 import { experience, siteConfig } from "@/data/site";
 
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ExperiencePage() {
   return (
-    <section className="section-space scroll-reveal">
+    <MotionSection className="page-hero">
       <Container className="space-y-10">
         <SectionHeading
           eyebrow="Experience"
@@ -20,6 +21,6 @@ export default function ExperiencePage() {
         />
         <ExperienceList items={experience} />
       </Container>
-    </section>
+    </MotionSection>
   );
 }

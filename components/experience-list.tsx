@@ -1,42 +1,59 @@
-import { ExperienceItem } from "@/data/site";
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import type { ExperienceItem } from "@/data/site";
 
 type ExperienceListProps = {
   items: ExperienceItem[];
+  compact?: boolean;
 };
 
-export function ExperienceList({ items }: ExperienceListProps) {
+export function ExperienceList({ items, compact = false }: ExperienceListProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <div className="grid gap-5">
+    <div className="experience-timeline">
       {items.map((item, index) => (
-        <article
+        <motion.article
           key={`${item.organization}-${item.period}`}
-          className="experience-card surface p-6 sm:p-8"
-          style={{ animationDelay: `${index * 100}ms` }}
+          className="experience-entry"
+          initial={shouldReduceMotion ? false : { opacity: 0, x: -24 }}
+          whileInView={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.58, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-            <div className="space-y-3">
-              <h3 className="font-display text-2xl font-semibold tracking-tight text-white">
-                {item.organization}
+          <span className="experience-node" aria-hidden="true">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <div className="experience-card">
+            <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+              <div>
+                <p className="eyebrow">{item.role}</p>
+                <h3 className="mt-3 max-w-3xl font-display text-2xl font-semibold leading-tight tracking-tight">
+                  {item.organization}
+                </h3>
                 {item.headlineRole ? (
-                  <span className="text-slate-400"> {" - "} {item.headlineRole}</span>
+                  <p className="mt-2 text-sm font-medium text-muted">{item.headlineRole}</p>
                 ) : null}
-              </h3>
-              <p className="text-lg text-accent">{item.role}</p>
+              </div>
+
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted lg:max-w-[13rem] lg:justify-end lg:text-right">
+                <p className="font-semibold text-foreground">{item.period}</p>
+                {item.location ? <p>{item.location}</p> : null}
+                {item.workMode ? <p>{item.workMode}</p> : null}
+              </div>
             </div>
 
-            <div className="space-y-1 text-left lg:text-right">
-              <p className="font-display text-xl font-semibold text-white">{item.period}</p>
-              {item.location ? <p className="text-sm text-slate-300">{item.location}</p> : null}
-              {item.workMode ? <p className="text-sm italic text-slate-400">{item.workMode}</p> : null}
-            </div>
+            <ul className="mt-6 grid gap-3 text-sm leading-7 text-muted">
+              {item.bullets.slice(0, compact ? 2 : undefined).map((bullet) => (
+                <li key={bullet} className="flex gap-3">
+                  <span className="mt-[0.68rem] h-1.5 w-1.5 flex-none rounded-full bg-accent" />
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-
-          <ul className="mt-6 grid gap-3 pl-5 text-sm leading-7 text-slate-300 marker:text-accent">
-            {item.bullets.map((bullet) => (
-              <li key={bullet}>{bullet}</li>
-            ))}
-          </ul>
-        </article>
+        </motion.article>
       ))}
     </div>
   );
