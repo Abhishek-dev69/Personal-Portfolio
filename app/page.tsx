@@ -1,263 +1,211 @@
+import { AnimatedHeroTitle } from "@/components/animated-hero-title";
 import { ButtonLink } from "@/components/button-link";
 import { Container } from "@/components/container";
 import { ExperienceList } from "@/components/experience-list";
 import { FeaturedProjectsMarquee } from "@/components/featured-projects-marquee";
-import { ProofBento } from "@/components/proof-bento";
-import { RecruiterSignalPanel } from "@/components/recruiter-signal-panel";
+import { Hero3D } from "@/components/hero-3d";
+import { MotionSection } from "@/components/motion-section";
 import { SectionHeading } from "@/components/section-heading";
-import { SignatureCards } from "@/components/signature-cards";
+import { SkillsGrid } from "@/components/skills-grid";
 import {
   experience,
   focusAreas,
   projects,
-  proofPoints,
   siteConfig,
-  skills,
   stats,
 } from "@/data/site";
 
 export default function HomePage() {
   return (
     <>
-      <section
-        id="home"
-        className="section-space scroll-mt-32 relative overflow-hidden pt-10 sm:pt-14 lg:pt-20"
-      >
+      <MotionSection id="home" className="hero-section scroll-mt-28">
         <div className="hero-orbits pointer-events-none absolute inset-0" aria-hidden="true">
           <span className="hero-orbit hero-orbit-one" />
           <span className="hero-orbit hero-orbit-two" />
-          <span className="hero-orbit hero-orbit-three" />
         </div>
-        <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-            <div className="reveal-up space-y-8">
-              <div className="hero-kicker inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.22em] text-slate-300">
-                <span className="status-dot h-2.5 w-2.5 rounded-full bg-accent" />
-                Open to mobile + full-stack roles
+        <div className="performance-stripes pointer-events-none absolute inset-x-0 bottom-0" aria-hidden="true">
+          <span className="performance-stripe performance-stripe-blue" />
+          <span className="performance-stripe performance-stripe-red" />
+        </div>
+
+        <Container className="relative">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
+            <div className="min-w-0">
+              <div className="hero-kicker">
+                <span className="status-dot" />
+                Open to mobile and full-stack roles
               </div>
 
-              <div className="space-y-6">
-                <p className="text-[11px] uppercase tracking-[0.18em] text-slate-400 sm:text-sm sm:tracking-[0.24em] lg:whitespace-nowrap">
-                  {siteConfig.heroLabel ?? siteConfig.title}
-                </p>
-                <div className="space-y-4">
-                  <h1 className="font-display text-5xl font-semibold tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
-                    {siteConfig.name}
-                  </h1>
-                  <p className="aurora-text max-w-2xl font-display text-3xl font-semibold leading-tight tracking-[-0.03em] sm:text-4xl">
-                    Store-ready mobile apps. Fast web products. Real-world product thinking.
-                  </p>
-                  <p className="max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-                    {siteConfig.tagline}
-                  </p>
-                  <p className="max-w-xl text-base leading-7 text-slate-400">
-                    {siteConfig.about}
-                  </p>
-                </div>
+              <p className="mt-8 text-xs font-semibold uppercase tracking-[0.22em] text-muted sm:text-sm">
+                {siteConfig.heroLabel}
+              </p>
+              <div className="mt-5">
+                <AnimatedHeroTitle
+                  name={siteConfig.name}
+                  headline="I turn product ideas into polished apps people can trust."
+                />
               </div>
 
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <ButtonLink href="/projects" className="sm:min-w-[168px]">
+              <p className="mt-7 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
+                {siteConfig.tagline}
+              </p>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <ButtonLink href="#projects" className="sm:min-w-[168px]">
                   View projects
+                  <span aria-hidden="true">↘</span>
                 </ButtonLink>
-                <ButtonLink
-                  href={siteConfig.resumeHref}
-                  variant="secondary"
-                  download
-                  className="sm:min-w-[168px]"
-                >
-                  Download resume
+                <ButtonLink href="#contact" variant="secondary" className="sm:min-w-[168px]">
+                  Contact me
                 </ButtonLink>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                {stats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="hero-stat-card rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-accent/30 hover:bg-white/[0.06] xl:min-h-[168px]"
-                  >
-                    <p className="font-display text-[1.75rem] font-semibold leading-tight tracking-tight text-white sm:text-2xl">
-                      {stat.value}
-                    </p>
-                    <p className="mt-2 text-sm text-slate-400">{stat.label}</p>
-                  </div>
-                ))}
+              <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted">
+                <span className="inline-flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-accent" />
+                  Based in India
+                </span>
+                <a className="text-link" href={`mailto:${siteConfig.email}`}>
+                  {siteConfig.email}
+                </a>
               </div>
             </div>
 
-            <div className="reveal-up">
-              <RecruiterSignalPanel proofPoints={proofPoints} />
+            <div className="hero-showcase min-w-0">
+              <Hero3D />
+              <div className="hero-showcase-copy">
+                <div>
+                  <p className="eyebrow">Product range</p>
+                  <p className="mt-2 font-display text-xl font-semibold">
+                    iOS · Android · Web
+                  </p>
+                </div>
+                <p className="max-w-xs text-sm leading-6 text-muted">
+                  Native mobile craft, cross-platform delivery, and backend-connected web
+                  products in one focused portfolio.
+                </p>
+              </div>
             </div>
           </div>
-        </Container>
-      </section>
 
-      <section className="section-space scroll-reveal pt-0">
+          <dl className="hero-stats">
+            {stats.map((stat) => (
+              <div key={stat.label} className="hero-stat">
+                <dt className="text-sm leading-6 text-muted">{stat.label}</dt>
+                <dd className="order-first font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+                  {stat.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </Container>
+      </MotionSection>
+
+      <MotionSection id="projects" className="section-space scroll-mt-28">
+        <Container className="space-y-10">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <SectionHeading
+              eyebrow="Selected work"
+              title="Products built for real users, not just portfolio screenshots."
+              description="Published mobile apps, live web platforms, and focused engineering projects spanning event technology, fintech, AI, and product tooling."
+            />
+            <ButtonLink href="/projects" variant="ghost" className="self-start sm:self-auto">
+              Explore all work
+              <span aria-hidden="true">↗</span>
+            </ButtonLink>
+          </div>
+          <FeaturedProjectsMarquee projects={projects.slice(0, 7)} />
+        </Container>
+      </MotionSection>
+
+      <MotionSection className="section-space section-tint">
         <Container className="space-y-10">
           <SectionHeading
-            eyebrow="Recruiter Proof"
-            title="A proof-led portfolio experience built for fast scanning and deeper trust."
-            description="Inspired by current portfolio patterns: bento evidence blocks, outcome-first storytelling, bold hierarchy, and subtle motion that supports the work instead of distracting from it."
+            eyebrow="What I build"
+            title="One product mindset across mobile, web, and intelligent workflows."
+            description="I choose the platform and architecture around the user problem, then bring the same attention to usability, reliability, and finish."
           />
-          <ProofBento />
-        </Container>
-      </section>
-
-      <section className="section-space scroll-reveal">
-        <Container className="space-y-10">
-          <SectionHeading
-            eyebrow="What I Build"
-            title="A focused mix of mobile apps, full-stack platforms, and intelligent product workflows."
-            description="The portfolio is structured around real product capability: shipping store-ready apps, live web products, and backend-connected experiences."
-          />
-          <div className="grid gap-5 lg:grid-cols-3">
+          <div className="grid gap-4 lg:grid-cols-3">
             {focusAreas.map((area, index) => (
-              <article
-                key={area.title}
-                className="focus-card surface reveal-up relative overflow-hidden p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/30 hover:bg-white/[0.045] sm:p-7"
-                style={{ animationDelay: `${index * 90}ms` }}
-              >
-                <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-accent/10 blur-3xl" />
-                <div className="relative space-y-5">
-                  <p className="font-display text-5xl font-semibold text-white/10">
-                    0{index + 1}
-                  </p>
-                  <div className="space-y-3">
-                    <h3 className="font-display text-2xl font-semibold tracking-tight text-white">
-                      {area.title}
-                    </h3>
-                    <p className="text-sm leading-7 text-slate-300">{area.description}</p>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {area.tools.map((tool) => (
-                      <span
-                        key={tool}
-                        className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-slate-300"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
+              <article key={area.title} className="capability-card">
+                <div className="flex items-start justify-between gap-5">
+                  <span className="capability-index">0{index + 1}</span>
+                  <span className="capability-arrow" aria-hidden="true">↗</span>
                 </div>
+                <h3 className="mt-10 font-display text-2xl font-semibold tracking-tight">
+                  {area.title}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-muted">{area.description}</p>
+                <ul className="mt-6 flex flex-wrap gap-2" aria-label={`${area.title} tools`}>
+                  {area.tools.map((tool) => (
+                    <li key={tool} className="tech-chip">{tool}</li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>
         </Container>
-      </section>
+      </MotionSection>
 
-      <section className="section-space scroll-reveal pt-0">
-        <Container className="space-y-10">
-          <SectionHeading
-            eyebrow="Signature Strengths"
-            title="Cards that show how I build, not just what tools I use."
-            description="A sharper snapshot of the areas I bring together across mobile engineering, full-stack delivery, and polished product UX."
-          />
-          <SignatureCards />
-        </Container>
-      </section>
-
-      <section id="about" className="section-space scroll-reveal scroll-mt-32">
-        <Container className="space-y-10">
-          <SectionHeading
-            eyebrow="About"
-            title="Building calm, high-performing products across mobile and web."
-            description="I blend mobile engineering, frontend polish, backend integration, and product thinking to create experiences that feel useful, credible, and ready to ship."
-          />
-          <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="surface p-6 transition duration-300 hover:border-accent/25 sm:p-8">
-              <p className="max-w-3xl text-base leading-8 text-slate-300">
-                My work blends product thinking, native mobile development, frontend polish,
-                and practical backend architecture. I care about the small details that make
-                interfaces feel trustworthy: rhythm, clarity, accessibility, performance, and
-                smooth execution.
-              </p>
-            </div>
-            <div className="surface p-6 transition duration-300 hover:border-accent/25 sm:p-8">
-              <p className="text-sm uppercase tracking-[0.24em] text-slate-400">Currently</p>
-              <p className="mt-4 text-base leading-7 text-slate-300">
-                Creating mobile apps, live web platforms, and product systems for teams that
-                need reliable execution and premium presentation.
-              </p>
-            </div>
+      <MotionSection id="about" className="section-space scroll-mt-28">
+        <Container className="grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16">
+          <div>
+            <SectionHeading
+              eyebrow="Profile"
+              title="A developer who cares about the product after the code compiles."
+              description="I work across mobile engineering, frontend systems, and practical backend integrations, with a strong bias toward clarity and shipping quality."
+            />
+            <p className="mt-7 max-w-xl text-base leading-8 text-muted">
+              {siteConfig.about} I care about the details that make software feel credible:
+              hierarchy, feedback, accessibility, performance, and reliable execution.
+            </p>
+            <ButtonLink href="/about" variant="ghost" className="mt-7">
+              More about my approach
+              <span aria-hidden="true">↗</span>
+            </ButtonLink>
           </div>
+          <SkillsGrid />
         </Container>
-      </section>
+      </MotionSection>
 
-      <section id="projects" className="section-space scroll-reveal scroll-mt-32">
+      <MotionSection id="experience" className="section-space section-tint scroll-mt-28">
         <Container className="space-y-10">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
-              eyebrow="Featured Projects"
-              title="Selected work with real launches, product depth, and modern UX."
-              description="A moving showcase of mobile apps, event-tech platforms, AI features, and live web products."
+              eyebrow="Experience"
+              title="Learning in serious environments and applying it to real product work."
+              description="Enterprise training, Apple-supported iOS development, and cross-platform application delivery have shaped how I collaborate and build."
             />
-            <ButtonLink href="/projects" variant="ghost">
-              See all projects
+            <ButtonLink href="/experience" variant="ghost" className="self-start sm:self-auto">
+              Full experience
+              <span aria-hidden="true">↗</span>
             </ButtonLink>
           </div>
-
-          <FeaturedProjectsMarquee projects={projects} />
+          <ExperienceList items={experience} compact />
         </Container>
-      </section>
+      </MotionSection>
 
-      <section className="section-space scroll-reveal">
-        <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <SectionHeading
-            eyebrow="Skills"
-            title="A stack focused on mobile polish, fast web delivery, and scalable backend-connected products."
-            description="From native iOS to React Native and full-stack web, I use the tools that keep products clean, responsive, and maintainable."
-          />
-          <div className="grid gap-3 sm:grid-cols-2">
-            {skills.map((skill) => (
-              <div
-                key={skill}
-                className="skill-pill rounded-[1.35rem] border border-white/10 bg-white/[0.04] px-4 py-4 text-sm text-slate-200 transition hover:border-white/20 hover:bg-white/[0.06]"
-              >
-                {skill}
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section id="experience" className="section-space scroll-reveal scroll-mt-32">
-        <Container className="space-y-10">
-          <SectionHeading
-            eyebrow="Experience"
-            title="Experience built through internships, iOS development, and product-focused mobile work."
-            description="A timeline of hands-on roles across enterprise training, Apple-supported iOS development, and cross-platform application work."
-          />
-          <ExperienceList items={experience} />
-        </Container>
-      </section>
-
-      <section id="contact" className="section-space scroll-reveal scroll-mt-32">
+      <MotionSection id="contact" className="section-space scroll-mt-28">
         <Container>
-          <div className="surface relative overflow-hidden p-6 sm:p-8 lg:p-10">
-            <div className="absolute left-0 top-0 h-40 w-40 rounded-full bg-accent/10 blur-3xl" />
-            <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-              <div className="max-w-2xl space-y-3">
-                <p className="text-sm uppercase tracking-[0.24em] text-slate-400">
-                  Contact
-                </p>
-                <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  Let&apos;s build something thoughtful and well-crafted.
-                </h2>
-                <p className="text-base leading-7 text-slate-300">
-                  I&apos;m open to freelance work, full-time roles, and collaborative product
-                  partnerships.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <ButtonLink href="/contact">Start a conversation</ButtonLink>
-                <ButtonLink href={`mailto:${siteConfig.email}`} variant="secondary">
-                  Email me
-                </ButtonLink>
-              </div>
+          <div className="contact-cta">
+            <div>
+              <p className="eyebrow">Have a role or product in mind?</p>
+              <h2 className="mt-5 max-w-3xl font-display text-4xl font-semibold leading-[1.04] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+                Let&apos;s turn a good idea into a product people enjoy using.
+              </h2>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+              <ButtonLink href={`mailto:${siteConfig.email}`} className="whitespace-nowrap">
+                Start a conversation
+                <span aria-hidden="true">↗</span>
+              </ButtonLink>
+              <ButtonLink href={siteConfig.resumeHref} variant="secondary" download>
+                Download resume
+              </ButtonLink>
             </div>
           </div>
         </Container>
-      </section>
+      </MotionSection>
     </>
   );
 }
