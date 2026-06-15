@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { ButtonLink } from "@/components/button-link";
 import { Container } from "@/components/container";
 import { ExperienceList } from "@/components/experience-list";
-import { MotionSection } from "@/components/motion-section";
 import { SectionHeading } from "@/components/section-heading";
 import { SkillsGrid } from "@/components/skills-grid";
 import { experience, highlights, siteConfig, stats } from "@/data/site";
@@ -15,7 +14,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <MotionSection className="page-hero">
+      <section className="page-hero">
         <Container className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
           <SectionHeading
             eyebrow="About me"
@@ -27,9 +26,9 @@ export default function AboutPage() {
             understandable, and useful for the person holding the device.
           </p>
         </Container>
-      </MotionSection>
+      </section>
 
-      <MotionSection className="section-space pt-0">
+      <section className="section-space pt-0">
         <Container className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
           <article className="about-story">
             <p className="eyebrow">How I work</p>
@@ -78,9 +77,9 @@ export default function AboutPage() {
             </dl>
           </aside>
         </Container>
-      </MotionSection>
+      </section>
 
-      <MotionSection className="section-space section-tint">
+      <section className="section-space section-tint">
         <Container className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
           <SectionHeading
             eyebrow="Skills"
@@ -89,9 +88,9 @@ export default function AboutPage() {
           />
           <SkillsGrid />
         </Container>
-      </MotionSection>
+      </section>
 
-      <MotionSection className="section-space">
+      <section className="section-space">
         <Container className="space-y-10">
           <SectionHeading
             eyebrow="Experience"
@@ -100,7 +99,7 @@ export default function AboutPage() {
           />
           <ExperienceList items={experience} />
         </Container>
-      </MotionSection>
+      </section>
     </>
   );
 }

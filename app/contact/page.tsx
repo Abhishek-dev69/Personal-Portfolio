@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { ButtonLink } from "@/components/button-link";
 import { Container } from "@/components/container";
-import { MotionSection } from "@/components/motion-section";
 import { SectionHeading } from "@/components/section-heading";
 import { contactLinks, siteConfig } from "@/data/site";
 
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <MotionSection className="page-hero">
+    <section className="page-hero">
       <Container>
         <div className="contact-page-grid">
           <div>
@@ -72,6 +71,6 @@ export default function ContactPage() {
           </div>
         </div>
       </Container>
-    </MotionSection>
+    </section>
   );
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/container";
-import { MotionSection } from "@/components/motion-section";
 import { ProjectsGallery } from "@/components/projects-gallery";
 import { SectionHeading } from "@/components/section-heading";
 import { projects, siteConfig } from "@/data/site";
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <MotionSection className="page-hero">
+    <section className="page-hero">
       <Container className="space-y-12">
         <SectionHeading
           eyebrow="Project archive"
@@ -21,6 +20,6 @@ export default function ProjectsPage() {
         />
         <ProjectsGallery projects={projects} />
       </Container>
-    </MotionSection>
+    </section>
   );
 }
