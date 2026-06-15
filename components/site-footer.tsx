@@ -3,27 +3,33 @@ import { Container } from "@/components/container";
 
 export function SiteFooter() {
   return (
-    <footer className="relative z-10 mt-auto shrink-0 border-t border-white/8 bg-slate-950/75 py-6 backdrop-blur-xl sm:py-8">
-      <Container className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-        <div className="space-y-2">
-          <p className="font-display text-lg font-semibold text-white">{siteConfig.name}</p>
-          <p className="max-w-md text-sm leading-6 text-slate-400">
-            Mobile app and full-stack web developer shipping published apps, live
-            products, and polished product experiences.
-          </p>
+    <footer className="site-footer">
+      <Container>
+        <div className="grid gap-8 py-10 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <p className="eyebrow">Abhishek Singh</p>
+            <p className="mt-4 max-w-xl font-display text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
+              Building mobile and web products that feel considered from the first interaction.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-x-5 gap-y-3 md:justify-end">
+            {contactLinks.filter((link) => link.label !== "Phone").map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="footer-link"
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+              >
+                {link.label}
+                <span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-wrap items-center gap-3">
-          {contactLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300 transition hover:border-white/20 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-              target={link.href.startsWith("http") ? "_blank" : undefined}
-              rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="flex flex-col gap-2 border-t border-border py-5 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} {siteConfig.name}</p>
+          <p>Designed and built with Next.js, TypeScript, and care.</p>
         </div>
       </Container>
     </footer>
