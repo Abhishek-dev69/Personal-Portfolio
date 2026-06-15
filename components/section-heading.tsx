@@ -1,3 +1,7 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+
 type SectionHeadingProps = {
   eyebrow: string;
   title: string;
@@ -12,18 +16,31 @@ export function SectionHeading({
   align = "left",
 }: SectionHeadingProps) {
   const alignment = align === "center" ? "text-center items-center" : "text-left items-start";
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div className={`flex max-w-2xl flex-col gap-4 ${alignment}`}>
-      <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-accent">
+    <motion.div
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
+      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.6 }}
+      transition={{ duration: 0.58, ease: [0.16, 1, 0.3, 1] }}
+      className={`flex max-w-3xl flex-col gap-5 ${alignment}`}
+    >
+      <motion.span
+        initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.94 }}
+        whileInView={shouldReduceMotion ? undefined : { opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.8 }}
+        transition={{ duration: 0.46, ease: [0.16, 1, 0.3, 1] }}
+        className="eyebrow"
+      >
         {eyebrow}
-      </span>
-      <div className="space-y-3">
-        <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+      </motion.span>
+      <div className="space-y-4">
+        <h2 className="font-display text-4xl font-semibold leading-[1.04] tracking-[-0.035em] sm:text-5xl">
           {title}
         </h2>
-        <p className="text-sm leading-7 text-slate-300 sm:text-base">{description}</p>
+        <p className="max-w-2xl text-base leading-7 text-muted sm:text-lg">{description}</p>
       </div>
-    </div>
+    </motion.div>
   );
 }

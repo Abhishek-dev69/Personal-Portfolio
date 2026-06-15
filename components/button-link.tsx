@@ -12,11 +12,11 @@ type ButtonLinkProps = {
 
 const styles = {
   primary:
-    "bg-accent text-slate-950 shadow-[0_12px_30px_rgba(66,219,191,0.22)] hover:-translate-y-0.5 hover:bg-[#7bf0da]",
+    "button-primary",
   secondary:
-    "border border-white/12 bg-white/5 text-white hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/8",
+    "button-secondary",
   ghost:
-    "text-slate-200 hover:-translate-y-0.5 hover:text-white",
+    "button-ghost",
 };
 
 export function ButtonLink({
@@ -27,7 +27,7 @@ export function ButtonLink({
   download = false,
   className = "",
 }: ButtonLinkProps) {
-  const sharedClassName = `motion-button inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 ${styles[variant]} ${className}`;
+  const sharedClassName = `motion-button inline-flex min-h-12 items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-background ${styles[variant]} ${className}`;
 
   if (external || download) {
     return (
