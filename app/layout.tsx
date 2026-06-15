@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 import { BackToTop } from "@/components/back-to-top";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { PageTransition } from "@/components/page-transition";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   applicationName: `${siteConfig.name} Portfolio`,
   keywords: [
     "portfolio",
+    "mobile application developer",
+    "iOS developer",
+    "React Native developer",
     "full stack developer",
     "next.js portfolio",
     "typescript portfolio",
@@ -63,34 +66,49 @@ const personJsonLd = {
   url: siteConfig.domain,
 };
 
+const themeScript = `
+  try {
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    const theme = savedTheme === "dark" ? "dark" : "light";
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+  } catch {
+    document.documentElement.dataset.theme = "light";
+    document.documentElement.style.colorScheme = "light";
+  }
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-theme="light" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
         <ScrollProgress />
         <BackToTop />
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-slate-950"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white"
         >
           Skip to content
         </a>
-        <div className="relative min-h-dvh overflow-hidden bg-background text-foreground">
-          <div className="ambient-mesh pointer-events-none absolute inset-0 bg-mesh-glow" />
-          <div className="ambient-grid pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:120px_120px] opacity-[0.06]" />
+        <div className="site-shell">
+          <div className="ambient-mesh pointer-events-none absolute inset-0" />
+          <div className="ambient-grid pointer-events-none absolute inset-0" />
           <div className="relative flex min-h-dvh flex-col">
             <SiteHeader />
             <main id="main-content" className="flex-1">
-              {children}
+              <PageTransition>{children}</PageTransition>
             </main>
             <SiteFooter />
           </div>
         </div>
-        <Script
+        <script
           id="person-jsonld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
