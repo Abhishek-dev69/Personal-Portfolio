@@ -18,15 +18,15 @@ const config: Config = {
         card: "var(--card)",
       },
       fontFamily: {
-        sans: ["Satoshi", "Avenir Next", "Segoe UI", "sans-serif"],
-        display: ["Clash Display", "Avenir Next", "Segoe UI", "sans-serif"],
+        sans: ["Avenir Next", "Century Gothic", "Segoe UI", "sans-serif"],
+        display: ["Avenir Next", "Century Gothic", "Segoe UI", "sans-serif"],
       },
       boxShadow: {
-        soft: "0 24px 80px rgba(3, 7, 18, 0.32)",
+        soft: "0 24px 80px rgba(var(--shadow-rgb), 0.18)",
       },
       backgroundImage: {
         "mesh-glow":
-          "radial-gradient(circle at top, rgba(66, 219, 191, 0.16), transparent 34%), radial-gradient(circle at right, rgba(245, 158, 11, 0.12), transparent 28%)",
+          "radial-gradient(circle at 76% 16%, rgba(196, 71, 50, 0.16), transparent 34%), radial-gradient(circle at 8% 76%, rgba(49, 95, 166, 0.16), transparent 30%), linear-gradient(115deg, transparent 0 56%, rgba(49, 95, 166, 0.08) 56% 59%, rgba(196, 71, 50, 0.1) 59% 62%, transparent 62%)",
       },
     },
   },
