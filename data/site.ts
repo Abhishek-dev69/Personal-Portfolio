@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Abhishek Singh",
-  title: "Full Stack Developer",
+  title: "Mobile Application & Full Stack Developer",
   heroLabel: "Mobile Application Developer • Full Stack Web Developer",
   tagline: "I design and ship mobile apps, full-stack web products, and real-time systems that feel polished from the first tap.",
   about:
@@ -29,30 +29,27 @@ export const stats = [
   { label: "Training program", value: "Apple x Infosys" },
 ];
 
-export const proofPoints = [
-  "Published mobile apps across App Store and Play Store",
-  "Built the UTSAV planner, vendor, and web ecosystem",
-  "Ships live web products with polished UX and performance",
-  "Combines native iOS, React Native, Supabase, and full-stack web",
-];
-
-export const skills = [
-  "TypeScript",
-  "Next.js",
-  "React",
-  "React Native",
-  "Swift",
-  "UIKit",
-  "SwiftUI",
-  "Expo",
-  "Node.js",
-  "Tailwind CSS",
-  "PostgreSQL",
-  "Supabase",
-  "REST APIs",
-  "MongoDB",
-  "Accessibility",
-  "Performance",
+export const skillGroups = [
+  {
+    title: "Mobile",
+    description: "Native and cross-platform apps built for smooth, reliable delivery.",
+    skills: ["Swift", "UIKit", "SwiftUI", "React Native", "Expo"],
+  },
+  {
+    title: "Frontend",
+    description: "Responsive interfaces with clear hierarchy and polished interaction.",
+    skills: ["TypeScript", "Next.js", "React", "Tailwind CSS", "Accessibility"],
+  },
+  {
+    title: "Backend",
+    description: "Practical services for authentication, realtime data, and product APIs.",
+    skills: ["Node.js", "Supabase", "PostgreSQL", "MongoDB", "REST APIs"],
+  },
+  {
+    title: "Product craft",
+    description: "The quality layer that turns working software into a trusted product.",
+    skills: ["Performance", "Responsive UI", "Motion", "Design Systems"],
+  },
 ];
 
 export type ExperienceItem = {
@@ -130,41 +127,6 @@ export const focusAreas = [
     description:
       "Product workflows powered by Supabase, REST APIs, push notifications, analytics, and AI-assisted experiences.",
     tools: ["Supabase", "FastAPI", "scikit-learn", "REST APIs", "Realtime"],
-  },
-];
-
-export const signatureCards = [
-  {
-    eyebrow: "Native Apps",
-    title: "Store-ready iOS craft",
-    description:
-      "Clean Swift, UIKit, and SwiftUI experiences with polished interaction details and production-minded architecture.",
-    metric: "Swift + UIKit",
-    tags: ["App Store", "Responsive UI", "Supabase"],
-  },
-  {
-    eyebrow: "Cross Platform",
-    title: "Fast mobile delivery",
-    description:
-      "React Native and Expo builds that keep Android and iOS workflows consistent, scalable, and pleasant to use.",
-    metric: "React Native",
-    tags: ["Expo", "Navigation", "Push"],
-  },
-  {
-    eyebrow: "Full Stack",
-    title: "Live product systems",
-    description:
-      "Next.js platforms, dashboards, and backend-connected flows built for speed, clarity, and real product usage.",
-    metric: "5+ launches",
-    tags: ["Next.js", "Node.js", "REST APIs"],
-  },
-  {
-    eyebrow: "Product Thinking",
-    title: "UX with purpose",
-    description:
-      "Interfaces shaped around hierarchy, accessibility, and decisions that help users understand what to do next.",
-    metric: "Clarity first",
-    tags: ["Accessibility", "Motion", "Performance"],
   },
 ];
 
