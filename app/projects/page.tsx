@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/container";
+import { MotionSection } from "@/components/motion-section";
 import { ProjectsGallery } from "@/components/projects-gallery";
 import { SectionHeading } from "@/components/section-heading";
 import { projects, siteConfig } from "@/data/site";
@@ -11,15 +12,15 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <section className="section-space scroll-reveal">
+    <MotionSection className="page-hero">
       <Container className="space-y-12">
         <SectionHeading
-          eyebrow="Projects"
-          title="Work designed to feel premium, useful, and production-ready."
-          description="Each placeholder project includes a description, tech stack, and links you can easily replace with real work."
+          eyebrow="Project archive"
+          title="Published apps, live platforms, and experiments with a product point of view."
+          description="Browse work across mobile development, event technology, fintech, workflow tools, AI, and full-stack web engineering."
         />
         <ProjectsGallery projects={projects} />
       </Container>
-    </section>
+    </MotionSection>
   );
 }
