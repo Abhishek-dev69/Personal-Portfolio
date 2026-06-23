@@ -158,6 +158,8 @@ export const projects: Project[] = [
       "Zustand",
     ],
     impact: "Multi-role event operations platform",
+    liveUrl: "https://utsav-web-zeta.vercel.app/",
+    liveLabel: "Live demo",
     imageLabel: "Premium multi-tenant event management web platform",
     githubLabel: "Private build",
   },
