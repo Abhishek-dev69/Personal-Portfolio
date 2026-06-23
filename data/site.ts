@@ -221,6 +221,8 @@ export const projects: Project[] = [
       "Expo Notifications",
     ],
     impact: "Vendor-side app for leads and payments",
+    liveUrl: "https://play.google.com/store/apps/details?id=com.utsav.vendor&pcampaignid=web_share",
+    liveLabel: "Play Store",
     imageLabel: "Vendor mobile app for leads, venue workflows, and client communication",
     githubLabel: "Local project",
   },
